@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174634">
+  <meta name="description" content="Escucha y comparte los villancicos de la Novena de Navidad, día 4.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <title>Villancicos · Novena de Navidad Día 4</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="music.css">
+  <script src="music.js" defer></script>
+  <script src="scale-controls.js" defer></script>
+</head>
+<body class="music-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Volver a la novena">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>NOVENA EN COMUNIDAD</span>
+    </a>
+    <div class="topbar-actions">
+      <div class="text-size-controls" role="group" aria-label="Tamaño de letra">
+        <button class="topbar-tool" id="textSmaller" type="button" aria-label="Disminuir tamaño de letra" title="Disminuir tamaño de letra">A−</button>
+        <button class="topbar-tool" id="textLarger" type="button" aria-label="Aumentar tamaño de letra" title="Aumentar tamaño de letra">A+</button>
+      </div>
+      <span class="sena-chip"><span class="sena-dot" aria-hidden="true"></span> FORMACIÓN SENA</span>
+      <a class="topbar-link" href="index.html">← Novena Día 4</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="music-hero" aria-labelledby="musicPageTitle">
+      <div class="music-lights" aria-hidden="true"><i>✦</i><i>✧</i><i>✦</i><i>·</i><i>✧</i><i>✦</i></div>
+      <div class="music-hero-copy">
+        <div class="eyebrow"><span aria-hidden="true">♫</span> Villancicos para compartir</div>
+        <h1 id="musicPageTitle">Cantemos juntos</h1>
+        <p>Elige un villancico, mira su portada y canta en comunidad.</p>
+      </div>
+      <div class="music-bells" aria-hidden="true">🔔 <span>✧</span> 🔔</div>
+      <div class="music-hero-garland" aria-hidden="true">●　✦　●　✧　●　✦　●　✧　●</div>
+    </section>
+
+    <div class="music-layout">
+      <aside class="now-playing-card" aria-label="Reproductor de villancicos">
+        <div class="now-playing-heading"><span class="live-dot"></span> SONANDO EN LA NOVENA</div>
+        <div id="currentCover" class="current-cover cover-art" aria-label="Portada del villancico">
+          <span class="cover-symbol" aria-hidden="true">✦</span>
+          <span class="cover-wordmark" aria-hidden="true">NAVIDAD · DÍA 4</span>
+        </div>
+        <div class="current-track-info">
+          <span class="current-kicker" id="currentCategory">VILLANCICO NAVIDEÑO</span>
+          <h2 id="currentTrackName">Elige un villancico</h2>
+          <p id="currentTrackArtist">Día 4 · Novena de Navidad</p>
+        </div>
+        <audio id="audioPlayer" controls preload="metadata" aria-label="Reproductor de audio"></audio>
+        <div class="player-note" id="playerStatus" aria-live="polite">Selecciona una portada para comenzar a escuchar.</div>
+        <div class="player-shortcuts">
+          <button class="round-control" id="previousTrack" type="button" aria-label="Villancico anterior">⏮</button>
+          <button class="round-control" id="nextTrack" type="button" aria-label="Siguiente villancico">⏭</button>
+        </div>
+      </aside>
+
+      <section class="playlist-panel" aria-labelledby="playlistTitle">
+        <div class="playlist-heading">
+          <div>
+            <div class="section-kicker">LISTA DE REPRODUCCIÓN</div>
+            <h2 id="playlistTitle">Nuestros villancicos</h2>
+            <p>Selecciona una canción. El reproductor aparecerá con su portada.</p>
+          </div>
+          <span class="song-count" id="songCount"></span>
+        </div>
+
+        <div class="offline-tools">
+          <button class="download-all" id="downloadAll" type="button"><span aria-hidden="true">↓</span> Preparar canciones sin conexión</button>
+          <p id="offlineStatus" aria-live="polite">Descarga aproximada: 42 MB · requiere internet la primera vez.</p>
+        </div>
+
+        <div class="song-grid" id="songGrid" aria-label="Villancicos disponibles"></div>
+      </section>
+    </div>
+
+    <section class="music-help">
+      <span class="help-icon" aria-hidden="true">✿</span>
+      <p>Las portadas ilustradas vienen incluidas con la página. Si quieres usar fotografías propias, guárdalas en <code>assets/covers</code> y las conectamos a cada canción.</p>
+    </section>
+
+    <footer class="footer"><span aria-hidden="true">✦</span> Música para celebrar juntos la Navidad <span aria-hidden="true">✦</span></footer>
+  </main>
+</body>
+</html>

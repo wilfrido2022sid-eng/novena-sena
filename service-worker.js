@@ -1,5 +1,15 @@
-const CACHE_NAME = 'novena-navidad-dia-4-v1';
-const APP_FILES = ['', 'index.html', 'styles.css', 'script.js', 'manifest.webmanifest', 'icon.svg'];
+const CACHE_NAME = 'novena-navidad-dia-4-v4';
+const APP_FILES = [
+  '', 'index.html', 'styles.css', 'script.js', 'scale-controls.js',
+  'villancicos.html', 'music.css', 'music.js', 'manifest.webmanifest', 'icon.svg',
+  'assets/covers/a-belen-pastores.jpg', 'assets/covers/a-la-nanita-nana.jpg',
+  'assets/covers/anton.jpg', 'assets/covers/campana-sobre-campana.jpg',
+  'assets/covers/el-tamborilero.jpg', 'assets/covers/los-peces-en-el-rio.jpg',
+  'assets/covers/mi-burrito-sabanero.jpg', 'assets/covers/noche-de-paz.jpg',
+  'assets/covers/pastores-venid.jpg', 'assets/covers/salve-reina-y-madre.jpg',
+  'assets/covers/tutaina.jpg', 'assets/covers/vamos-pastores.jpg',
+  'assets/covers/vamos-vamos-pastorcitos.jpg', 'assets/covers/zagalillo.jpg'
+];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
@@ -22,6 +32,7 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin) return;
+  if (url.pathname.includes('/assets/audio/')) return;
 
   if (request.mode === 'navigate') {
     event.respondWith((async () => {
@@ -40,13 +51,17 @@ self.addEventListener('fetch', event => {
   }
 
   event.respondWith((async () => {
-    const cached = await caches.match(request);
-    if (cached) return cached;
-    const response = await fetch(request);
-    if (response.ok && response.status === 200) {
-      const cache = await caches.open(CACHE_NAME);
-      await cache.put(request, response.clone());
+    try {
+      const response = await fetch(request);
+      if (response.ok && response.status === 200) {
+        const cache = await caches.open(CACHE_NAME);
+        await cache.put(request, response.clone());
+      }
+      return response;
+    } catch {
+      const cached = await caches.match(request);
+      if (cached) return cached;
+      return Response.error();
     }
-    return response;
   })());
 });

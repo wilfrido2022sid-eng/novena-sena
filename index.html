@@ -8,11 +8,9 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <title>Novena de Navidad · Día 4</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="scale-controls.js" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -20,7 +18,16 @@
       <span class="brand-mark" aria-hidden="true">✦</span>
       <span>NOVENA EN COMUNIDAD</span>
     </a>
-    <a class="topbar-link" href="#villancicos"><span aria-hidden="true">♫</span> Villancicos</a>
+    <div class="topbar-actions">
+      <div class="text-size-controls" role="group" aria-label="Tamaño de letra">
+        <button class="topbar-tool" id="textSmaller" type="button" aria-label="Disminuir tamaño de letra" title="Disminuir tamaño de letra">A−</button>
+        <button class="topbar-tool" id="textLarger" type="button" aria-label="Aumentar tamaño de letra" title="Aumentar tamaño de letra">A+</button>
+      </div>
+      <button class="topbar-action" id="celebrationToggle" type="button" aria-pressed="false">Modo celebración</button>
+      <button class="topbar-action" id="printProgramButton" type="button">Imprimir / Guardar PDF</button>
+      <span class="sena-chip"><span class="sena-dot" aria-hidden="true"></span> FORMACIÓN SENA</span>
+      <a class="topbar-link" href="villancicos.html"><span aria-hidden="true">♫</span> Villancicos</a>
+    </div>
   </header>
 
   <main id="inicio">
@@ -57,10 +64,6 @@
             <h2 id="sectionTitle"></h2>
             <p id="sectionDescription"></p>
           </div>
-          <div class="reader-tools" aria-label="Tamaño del texto">
-            <button class="tool-btn" id="smallerText" type="button" aria-label="Reducir tamaño del texto">A−</button>
-            <button class="tool-btn" id="largerText" type="button" aria-label="Aumentar tamaño del texto">A+</button>
-          </div>
         </div>
         <div class="cards" id="prayerCards"></div>
         <div class="bottom-nav">
@@ -70,45 +73,25 @@
       </section>
     </div>
 
-    <section class="music-section" id="villancicos" aria-labelledby="musicTitle">
-      <div class="music-heading">
-        <span class="music-symbol" aria-hidden="true">♫</span>
-        <div>
-          <div class="section-kicker">CANTEMOS JUNTOS</div>
-          <h2 id="musicTitle">Villancicos</h2>
-          <p>Elige una canción y acompaña la novena. Usa la barra del reproductor para buscar cualquier momento.</p>
-        </div>
-      </div>
-      <div class="player-card">
-        <div class="track-list" id="trackList" aria-label="Lista de villancicos"></div>
-        <div class="player-main">
-          <div class="now-playing">
-            <div class="album-art" aria-hidden="true">✦<span>♫</span></div>
-            <div class="track-info"><span class="track-label">REPRODUCIENDO</span><strong id="currentTrackName">Selecciona un villancico</strong><span id="currentTrackArtist">Música de Navidad</span></div>
-          </div>
-          <audio id="audioPlayer" controls preload="metadata" aria-label="Reproductor de villancicos"></audio>
-          <div class="audio-hint" id="audioHint">Cuando agreguemos los archivos de audio, podrás reproducirlos aquí.</div>
-          <label class="add-audio" for="audioFiles">＋ Cargar audio desde este dispositivo</label>
-          <input id="audioFiles" class="sr-only" type="file" accept="audio/*" multiple>
-          <div class="player-actions">
-            <button class="player-btn" id="previousTrack" type="button" aria-label="Villancico anterior">⏮</button>
-            <button class="player-btn" id="nextTrack" type="button" aria-label="Siguiente villancico">⏭</button>
-          </div>
-        </div>
-      </div>
-      <p class="music-footnote">Los audios que cargues desde tu dispositivo solo se reproducen en esta sesión. Para incluirlos en el proyecto, agrega sus archivos en <code>assets/audio</code>.</p>
-    </section>
+    <section id="printProgram" class="print-program" hidden aria-label="Programa completo para imprimir"></section>
 
     <section class="credits" aria-labelledby="creditsTitle">
       <div class="credits-mark" aria-hidden="true">✦</div>
       <div class="credits-copy">
-        <div class="section-kicker">PROYECTO FORMATIVO</div>
-        <h2 id="creditsTitle">Creado por Willfredo A. Sierra Guerra</h2>
-        <p>Programa de Programación de Software · Novena de Navidad, día 4</p>
-        <p class="credits-cohort">Ficha de formación: <strong>pendiente de agregar</strong></p>
+        <div class="section-kicker">ACTIVIDAD FORMATIVA · SENA</div>
+        <h2 id="creditsTitle">Creado por Willfrido A. Sierra Guerra</h2>
+        <p>Técnico en Programación de Software · Novena de Navidad, día 4</p>
+        <p class="credits-cohort">Ficha de formación <strong>3410082</strong></p>
       </div>
-      <div class="credits-seal" aria-label="Creado por Willfredo A. Sierra Guerra">ASG</div>
     </section>
+    <nav class="source-links" aria-label="Fuentes de consulta">
+      <span>Fuentes de la novena:</span>
+      <a href="https://amencomunicaciones.com/crece-la-fe/novena-de-navidad-cuarto-dia/" target="_blank" rel="noopener">Amén Comunicaciones · Día 4</a>
+      <a href="https://www.colombia.com/navidad/novena/d4.aspx" target="_blank" rel="noopener">Colombia.com · Día 4</a>
+      <a href="https://www.bibliotecadigitaldebogota.gov.co/resources/2092684/" target="_blank" rel="noopener">Biblioteca Digital de Bogotá · Novena de 1956 (dominio público)</a>
+      <a href="https://www.cec.org.co/sites/default/files/OREMOS%20EN%20FAMILIA%202020.pdf.pdf" target="_blank" rel="noopener">Conferencia Episcopal de Colombia · Avemaría</a>
+      <a href="https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html" target="_blank" rel="noopener">Vaticano · Oraciones comunes</a>
+    </nav>
     <footer class="footer"><span aria-hidden="true">✦</span> Hecho para compartir la Navidad en comunidad <span aria-hidden="true">✦</span></footer>
   </main>
 </body>
