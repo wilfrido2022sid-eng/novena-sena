@@ -1,0 +1,14 @@
+{
+  "name": "Novena de Navidad · Día 4",
+  "short_name": "Novena Día 4",
+  "description": "Novena de Navidad para compartir en comunidad",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf6eb",
+  "theme_color": "#174634",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
