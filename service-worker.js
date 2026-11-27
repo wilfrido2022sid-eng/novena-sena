@@ -1,7 +1,7 @@
-const CACHE_NAME = 'novena-navidad-dia-4-v4';
+const CACHE_NAME = 'novena-navidad-dia-4-v5';
 const APP_FILES = [
-  '', 'index.html', 'styles.css', 'script.js', 'scale-controls.js',
-  'villancicos.html', 'music.css', 'music.js', 'manifest.webmanifest', 'icon.svg',
+  '', 'index.html', 'css/styles.css', 'js/script.js', 'js/scale-controls.js',
+  'villancicos.html', 'css/music.css', 'js/music.js', 'manifest.webmanifest', 'assets/images/icon.svg', 'assets/images/logosena.png',
   'assets/covers/a-belen-pastores.jpg', 'assets/covers/a-la-nanita-nana.jpg',
   'assets/covers/anton.jpg', 'assets/covers/campana-sobre-campana.jpg',
   'assets/covers/el-tamborilero.jpg', 'assets/covers/los-peces-en-el-rio.jpg',

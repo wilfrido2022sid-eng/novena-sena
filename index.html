@@ -6,17 +6,17 @@
   <meta name="theme-color" content="#174634">
   <meta name="description" content="Una novena de Navidad interactiva para compartir en comunidad.">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
   <title>Novena de Navidad · Día 4</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
-  <script src="scale-controls.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+  <script src="js/scale-controls.js" defer></script>
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="#inicio" aria-label="Novena en comunidad, inicio">
       <span class="brand-mark" aria-hidden="true">✦</span>
-      <span>NOVENA EN COMUNIDAD</span>
+      <span>NOVENA EN SENA</span>
     </a>
     <div class="topbar-actions">
       <div class="text-size-controls" role="group" aria-label="Tamaño de letra">
@@ -24,11 +24,15 @@
         <button class="topbar-tool" id="textLarger" type="button" aria-label="Aumentar tamaño de letra" title="Aumentar tamaño de letra">A+</button>
       </div>
       <button class="topbar-action" id="celebrationToggle" type="button" aria-pressed="false">Modo celebración</button>
-      <button class="topbar-action" id="printProgramButton" type="button">Imprimir / Guardar PDF</button>
-      <span class="sena-chip"><span class="sena-dot" aria-hidden="true"></span> FORMACIÓN SENA</span>
-      <a class="topbar-link" href="villancicos.html"><span aria-hidden="true">♫</span> Villancicos</a>
+      <button class="topbar-action" id="printProgramButton" type="button">Guardar PDF</button>
     </div>
   </header>
+
+  <a class="music-fab" href="villancicos.html" aria-label="Abrir la página de villancicos">
+    <span class="music-fab-icon" aria-hidden="true">♫</span>
+    <span>Villancicos</span>
+    <span class="music-fab-arrow" aria-hidden="true">→</span>
+  </a>
 
   <main id="inicio">
     <section class="hero" aria-labelledby="pageTitle">
